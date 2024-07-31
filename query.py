@@ -3,7 +3,7 @@ import random
 
 
 def main():
-    with open("db.json") as f:
+    with open("legacy-db.json") as f:
         db = f.read()
 
 

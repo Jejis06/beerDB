@@ -56,9 +56,10 @@ def lookAt(num):
 
 def main():
     print("[STARTING DB_CREATION]")
-    db = [] 
-    for i in range(2347):
-        print(f"DB-BLOCK[{i}/2347] <-- writing", end="")
+    db = []
+    num_max_beer_pages = 2625
+    for i in range(num_max_beer_pages):
+        print(f"DB-BLOCK[{i}/{num_max_beer_pages}] <-- writing", end="")
         try: 
             db += lookAt(i * 10)
             print(" [SUCCES]")
@@ -69,7 +70,7 @@ def main():
     sdb = sorted(db, key=lambda x: x['alk']/100 * x["rating"])
     print("[DB SORTED]")
 
-    with open("db.json","w") as f:
+    with open("db.json", "w") as f:
         print("[DB FILE OPENED]")
         json.dump(sdb, f, indent=4)
         print("[FILE WRITTEN]")
